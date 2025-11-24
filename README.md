@@ -22,7 +22,18 @@ Files added by the scaffold:
 - `build.sh` — compiles `.java` files into the `out/` directory
 - `run.sh` — runs the sample `App` class
 - `.gitignore` — ignores `out/`
+- `pom.xml` — optional Maven POM that uses the existing `src/` layout
 
 See the scripts for details.
+
+Optional: build with Maven
+
+```bash
+# compile with maven
+mvn -B package
+
+# run the produced classes (or use `bash run.sh`)
+java -cp target/classes com.example.App
+```
 ```
 # JAVAAA
