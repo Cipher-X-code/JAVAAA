@@ -12,6 +12,11 @@ Structure
 - `backtest.py` — computes EV from model vs bookmaker odds and simulates simple staking
 - `run_pipeline.sh` — convenience wrapper to run the steps
 
+Calibration
+- The training script now calibrates model probabilities using Platt scaling (`CalibratedClassifierCV`)
+  so `predictor/model.joblib` contains a calibrated classifier that produces better probability
+  estimates for expected-value calculations.
+
 Notes
 - This prototype uses public CSVs from football-data.co.uk (no API key). Downloading
   these files may be rate-limited; respect the source terms.
