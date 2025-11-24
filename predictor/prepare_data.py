@@ -135,7 +135,8 @@ def build_features(data_dir=DATA_DIR):
         "imp_draw_n",
         "imp_away_n",
     ]
-    df_features = df[[*features, "label", "date", "HomeTeam", "AwayTeam", "odds_home", "odds_draw", "odds_away"]].copy()
+    # Keep `FTR` (full-time result) so backtest/evaluation can access actual outcomes
+    df_features = df[[*features, "label", "FTR", "date", "HomeTeam", "AwayTeam", "odds_home", "odds_draw", "odds_away"]].copy()
     return df_features.dropna()
 
 
