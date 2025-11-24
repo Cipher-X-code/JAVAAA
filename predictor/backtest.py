@@ -18,7 +18,8 @@ def backtest(ev_threshold=0.05):
     model = joblib.load(MODEL)
     df = build_features()
 
-    X = df.drop(columns=["label", "date", "HomeTeam", "AwayTeam", "odds_home", "odds_draw", "odds_away"])
+    # Drop non-feature columns including FTR (actual result)
+    X = df.drop(columns=["label", "FTR", "date", "HomeTeam", "AwayTeam", "odds_home", "odds_draw", "odds_away"])
     probs = model.predict_proba(X)
     df[["p_home", "p_draw", "p_away"]] = probs
 
